@@ -31,14 +31,21 @@ const App = () => {
   };
 
   const login = async () => {
-    const data = await axios
+    await axios
       .post("https://api.dimigo.in/auth/", {
         id: userInfo.id,
         password: userInfo.pw,
       })
       .then((response) => {
-        console.log("로그인 성공");
-        setStatus({ ...status, isLogin: true, isLoading: false });
+        setStatus({
+          ...status,
+          isLogin: true,
+          isLoading: false,
+        });
+        setUserInfo({
+          accessToken: response.data.token,
+          refreshToken: response.data.refresh_token,
+        });
       })
       .catch((error) => {
         setStatus({
@@ -66,7 +73,13 @@ const App = () => {
   }
 
   if (status.isLogin) {
-    return <>로그인 함</>;
+    return (
+      <>
+        로그인 함<br />
+        <b>accessToken</b>: {userInfo.accessToken} <br />
+        <b>refreshToken</b>: {userInfo.refreshToken}
+      </>
+    );
   }
 
   return (
