@@ -97,6 +97,24 @@ const Home = () => {
       });
   };
 
+  const getCookieValue = (key) => {
+    let cookieKey = key + "=";
+    let result = "";
+    const cookieArr = document.cookie.split(";");
+
+    for (let i = 0; i < cookieArr.length; i++) {
+      if (cookieArr[i][0] === " ") {
+        cookieArr[i] = cookieArr[i].substring(1);
+      }
+
+      if (cookieArr[i].indexOf(cookieKey) === 0) {
+        result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
+        return result;
+      }
+    }
+    return result;
+  };
+
   if (status.isLoading) {
     return (
       <>
@@ -113,13 +131,23 @@ const Home = () => {
   }
 
   if (status.isLogin) {
-    return (
-      <>
-        로그인 함<br />
-        <b>accessToken</b>: {userInfo.accessToken} <br />
-        <b>refreshToken</b>: {userInfo.refreshToken}
-      </>
-    );
+    var date = new Date();
+    date.setDate(date.getDate() + 60); // 60분 뒤 만료
+
+    document.cookie = `accessToken=${
+      userInfo.accessToken
+    };Expires=${date.toUTCString()};Secure)`;
+
+    document.cookie = `refreshToken=${
+      userInfo.refreshToken
+    };Expires=${date.toUTCString()};Secure)`;
+  }
+
+  if (
+    getCookieValue("accessToken") != "" &&
+    getCookieValue("refreshToken") != ""
+  ) {
+    return <>로그인 함</>;
   }
 
   let today = new Date();
