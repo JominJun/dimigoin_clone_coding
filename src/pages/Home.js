@@ -27,8 +27,20 @@ const Home = () => {
   });
 
   useEffect((mealInfo) => {
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = today.getMonth();
+    let day = today.getDate();
+
     axios
-      .get("https://api.dimigo.in/dimibobs/today/")
+      .get(
+        "https://dev-api.dimigo.in/dimibobs/today/" +
+          year +
+          "-" +
+          month +
+          "-" +
+          day
+      )
       .then((response) => {
         setMealInfo({
           ...mealInfo,
@@ -38,7 +50,6 @@ const Home = () => {
         });
       })
       .catch((error) => {
-        console.log("에러 발생");
         setMealInfo({
           ...mealInfo,
           isError: true,
@@ -111,6 +122,29 @@ const Home = () => {
     );
   }
 
+  let today = new Date();
+  let hour = today.getHours();
+
+  let isBreakfast = false,
+    isLunch = false,
+    isDinner = false;
+
+  if (6 <= hour && hour <= 8) {
+    isBreakfast = true;
+    isLunch = false;
+    isDinner = false;
+  }
+  if (9 <= hour && hour <= 13) {
+    isBreakfast = false;
+    isLunch = true;
+    isDinner = false;
+  }
+  if (14 <= hour && hour <= 20) {
+    isBreakfast = false;
+    isLunch = false;
+    isDinner = true;
+  }
+
   return (
     <div id="wrapBox">
       <div id="loginBox">
@@ -165,19 +199,28 @@ const Home = () => {
       </div>
 
       <div id="mealBox">
-        <div id="mealContentWrap" className="">
+        <div
+          id="mealContentWrap"
+          className={isBreakfast ? "selectedMealContentWrap" : ""}
+        >
           <div id="mealTime">아침</div>
           <div id="meal">
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.breakfast}
           </div>
         </div>
-        <div id="mealContentWrap" className="">
+        <div
+          id="mealContentWrap"
+          className={isLunch ? "selectedMealContentWrap" : ""}
+        >
           <div id="mealTime">점심</div>
           <div id="meal">
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.lunch}
           </div>
         </div>
-        <div id="mealContentWrap" className="selectedMealContentWrap">
+        <div
+          id="mealContentWrap"
+          className={isDinner ? "selectedMealContentWrap" : ""}
+        >
           <div id="mealTime">저녁</div>
           <div id="meal">
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.dinner}

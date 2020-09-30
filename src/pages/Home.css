@@ -150,10 +150,10 @@ body {
 
 #mealContentWrap {
   width: calc(100% - 60px);
-  height: 70px;
+  height: 65px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-top: 20px;
+  padding-top: 25px;
   background-color: #fff;
   display: block;
 }
