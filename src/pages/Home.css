@@ -1,0 +1,182 @@
+@font-face {
+  font-family: "aGothic10";
+  src: url(../fonts/a고딕10.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic11";
+  src: url(../fonts/a고딕11.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic12";
+  src: url(../fonts/a고딕12.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic13";
+  src: url(../fonts/a고딕13.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic14";
+  src: url(../fonts/a고딕14.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic15";
+  src: url(../fonts/a고딕15.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic16";
+  src: url(../fonts/a고딕16.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic17";
+  src: url(../fonts/a고딕17.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic18";
+  src: url(../fonts/a고딕18.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "aGothic19";
+  src: url(../fonts/a고딕19.ttf) format("truetype");
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/background.png");
+  background-size: (100%, 100%);
+  font-family: "aGothic12";
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#root > div {
+  width: 100%;
+  height: calc(100% - 5px);
+  border-top: 5px solid #d64b45;
+}
+
+#wrapBox {
+  width: 70%;
+  height: 270px;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 30px; /* 상단 바 때문에 중간에 두면 아래에 내려간 것 처럼 보임*/
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+#loginBox {
+  float: left;
+}
+
+#logoBox {
+  display: block;
+  margin-bottom: 40px;
+}
+
+#logo {
+  height: 50px;
+}
+
+#loginArea {
+  display: block;
+}
+
+#loginForm {
+  display: block;
+}
+
+#id {
+  margin-bottom: 5px;
+}
+
+#pw {
+  margin-bottom: 30px;
+}
+
+.inputText {
+  width: 330px;
+  height: 45px;
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 0px;
+  font-family: "aGothic12";
+  font-size: 14px;
+  padding: 0px;
+  padding-left: 20px;
+  outline: none;
+}
+
+.inputText::placeholder {
+  color: #777;
+}
+
+#submitButton {
+  width: 350px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #d64b45;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-family: "aGothic15";
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+}
+
+#mealBox {
+  width: 720px;
+  height: 270px;
+  float: right;
+  box-shadow: 0px 7px 10px #ddd;
+  font-family: "aGothic12";
+  font-size: 14px;
+}
+
+#mealContentWrap {
+  width: calc(100% - 60px);
+  height: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  background-color: #fff;
+  display: block;
+}
+
+.selectedMealContentWrap {
+  border-left: 3px solid #d64b45;
+}
+
+.selectedMealContentWrap > #mealTime {
+  color: #d64b45;
+}
+
+.selectedMealContentWrap > #meal {
+  color: #000;
+}
+
+#mealTime {
+  font-family: "aGothic15";
+  font-size: 16px;
+  color: #999;
+}
+
+#meal {
+  margin-top: 10px;
+  color: #bbb;
+}
