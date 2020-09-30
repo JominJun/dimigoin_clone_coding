@@ -80,11 +80,12 @@ body {
 }
 
 #loginBox {
+  width: 350px;
   float: left;
 }
 
 #logoBox {
-  display: block;
+  display: inline-block;
   margin-bottom: 40px;
 }
 
@@ -109,7 +110,7 @@ body {
 }
 
 .inputText {
-  width: 330px;
+  width: calc(100% - 20px);
   height: 45px;
   display: block;
   border: 1px solid #ddd;
@@ -126,7 +127,7 @@ body {
 }
 
 #submitButton {
-  width: 350px;
+  width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #d64b45;
@@ -140,12 +141,38 @@ body {
 }
 
 #mealBox {
-  width: 720px;
+  width: calc(100% - 550px);
   height: 270px;
   float: right;
   box-shadow: 0px 7px 10px #ddd;
   font-family: "aGothic12";
   font-size: 14px;
+}
+
+@media (max-width: 1320px) {
+  #wrapBox {
+    width: 80%;
+    height: 590px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  #logo {
+    text-align: center;
+  }
+
+  #loginBox {
+    width: 100%;
+    float: none;
+    display: block;
+  }
+
+  #mealBox {
+    width: 100%;
+    float: none;
+    display: block;
+    margin-top: 50px;
+  }
 }
 
 #mealContentWrap {
