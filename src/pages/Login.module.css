@@ -3,7 +3,7 @@
   height: 270px;
   padding-left: 15%;
   padding-right: 15%;
-  padding-bottom: 30px; /* 상단 바 때문에 중간에 두면 아래에 내려간 것 처럼 보임*/
+  padding-bottom: 50px; /* 상단 바 때문에 중간에 두면 아래에 내려간 것 처럼 보임*/
   position: relative;
   transform: translateY(-50%);
   top: 50%;
@@ -115,21 +115,21 @@
   border-left: 3px solid #d64b45;
 }
 
-.selectedMealContentWrap > #mealTime {
+.selectedMealContentWrap > .mealTime {
   color: #d64b45;
 }
 
-.selectedMealContentWrap > #meal {
+.selectedMealContentWrap > .meal {
   color: #000;
 }
 
-#mealTime {
+.mealTime {
   font-family: "aGothic15";
   font-size: 16px;
   color: #999;
 }
 
-#meal {
+.meal {
   margin-top: 10px;
   color: #bbb;
 }

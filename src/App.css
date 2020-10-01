@@ -1,4 +1,4 @@
-#loginHTML {
+#bgHTML {
   width: 100%;
   height: 100%;
   background-image: url("./images/background.png");
@@ -6,13 +6,30 @@
   font-family: "aGothic12";
 }
 
-.loginHTML_ROOT {
+.bgHTML_ROOT {
   width: 100%;
   height: 100%;
 }
 
-.loginHTML_ROOT > div {
+.bgHTML_ROOT > div {
   width: 100%;
   height: calc(100% - 5px);
   border-top: 5px solid #d64b45;
+}
+
+#mainHTML {
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  font-family: "aGothic12";
+}
+
+.mainHTML_ROOT {
+  width: 100%;
+  height: 100%;
+}
+
+.mainHTML_ROOT > div {
+  width: 100%;
+  height: 100%;
 }

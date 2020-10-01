@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import styles from "./Login.module.css";
+import Main from "./Main";
 
 const Login = (props) => {
-  document.body.parentElement.setAttribute("id", "loginHTML"); // html의 id 설정
-  document.body.setAttribute("id", "loginHTML"); // body의 id 설정
-  document.body.childNodes[3].setAttribute("class", "loginHTML_ROOT"); // root 설정
+  document.body.parentElement.setAttribute("id", "bgHTML"); // html의 id 설정
+  document.body.setAttribute("id", "bgHTML"); // body의 id 설정
+  document.body.childNodes[3].setAttribute("class", "bgHTML_ROOT"); // root 설정
 
   const [status, setStatus] = useState({
     isLogin: false,
@@ -151,7 +152,12 @@ const Login = (props) => {
     getCookieValue("accessToken") !== "" &&
     getCookieValue("refreshToken") !== ""
   ) {
-    props.history.push("/main");
+    return (
+      <Main
+        accessToken={getCookieValue("accessToken")}
+        refreshToken={getCookieValue("refreshToken")}
+      />
+    );
   }
 
   let today = new Date();
@@ -235,8 +241,8 @@ const Login = (props) => {
           id={styles.mealContentWrap}
           className={isBreakfast ? styles.selectedMealContentWrap : ""}
         >
-          <div id={styles.mealTime}>아침</div>
-          <div id={styles.meal}>
+          <div className={styles.mealTime}>아침</div>
+          <div className={styles.meal}>
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.breakfast}
           </div>
         </div>
@@ -244,8 +250,8 @@ const Login = (props) => {
           id={styles.mealContentWrap}
           className={isLunch ? styles.selectedMealContentWrap : ""}
         >
-          <div id={styles.mealTime}>점심</div>
-          <div id={styles.meal}>
+          <div className={styles.mealTime}>점심</div>
+          <div className={styles.meal}>
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.lunch}
           </div>
         </div>
@@ -253,8 +259,8 @@ const Login = (props) => {
           id={styles.mealContentWrap}
           className={isDinner ? styles.selectedMealContentWrap : ""}
         >
-          <div id={styles.mealTime}>저녁</div>
-          <div id={styles.meal}>
+          <div className={styles.mealTime}>저녁</div>
+          <div className={styles.meal}>
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.dinner}
           </div>
         </div>
