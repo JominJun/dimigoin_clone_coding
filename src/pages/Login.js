@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Main from "./Main";
-import "./Login.css";
+import styles from "./Login.module.css";
 
 const Login = (props) => {
+  document.body.parentElement.setAttribute("id", "loginHTML"); // html의 id 설정
+  document.body.setAttribute("id", "loginHTML"); // body의 id 설정
+  document.body.childNodes[3].setAttribute("class", "loginHTML_ROOT"); // root 설정
+
   const [status, setStatus] = useState({
     isLogin: false,
     isLoading: false,
@@ -175,11 +178,11 @@ const Login = (props) => {
   }
 
   return (
-    <div id="wrapBox">
-      <div id="loginBox">
-        <div id="logoBox">
+    <div id={styles.wrapBox}>
+      <div id={styles.loginBox}>
+        <div id={styles.logoBox}>
           <svg
-            id="logo"
+            id={styles.logo}
             data-v-5674a119=""
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
@@ -196,16 +199,16 @@ const Login = (props) => {
             ></path>
           </svg>
         </div>
-        <div id="loginArea">
+        <div id={styles.loginArea}>
           <form
-            id="loginForm"
+            id={styles.loginForm}
             name="LoginForm"
             method="POST"
             onSubmit={prelogin}
           >
             <input
-              id="id"
-              className="inputText"
+              id={styles.id}
+              className={styles.inputText}
               name="id"
               type="text"
               placeholder="아이디"
@@ -213,45 +216,45 @@ const Login = (props) => {
               onChange={handleChange}
             />
             <input
-              id="pw"
-              className="inputText"
+              id={styles.pw}
+              className={styles.inputText}
               name="pw"
               type="password"
               placeholder="비밀번호"
               onChange={handleChange}
             />
-            <button id="submitButton" type="submit">
+            <button id={styles.submitButton} type="submit">
               로그인
             </button>
           </form>
         </div>
       </div>
 
-      <div id="mealBox">
+      <div id={styles.mealBox}>
         <div
-          id="mealContentWrap"
-          className={isBreakfast ? "selectedMealContentWrap" : ""}
+          id={styles.mealContentWrap}
+          className={isBreakfast ? styles.selectedMealContentWrap : ""}
         >
-          <div id="mealTime">아침</div>
-          <div id="meal">
+          <div id={styles.mealTime}>아침</div>
+          <div id={styles.meal}>
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.breakfast}
           </div>
         </div>
         <div
-          id="mealContentWrap"
-          className={isLunch ? "selectedMealContentWrap" : ""}
+          id={styles.mealContentWrap}
+          className={isLunch ? styles.selectedMealContentWrap : ""}
         >
-          <div id="mealTime">점심</div>
-          <div id="meal">
+          <div id={styles.mealTime}>점심</div>
+          <div id={styles.meal}>
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.lunch}
           </div>
         </div>
         <div
-          id="mealContentWrap"
-          className={isDinner ? "selectedMealContentWrap" : ""}
+          id={styles.mealContentWrap}
+          className={isDinner ? styles.selectedMealContentWrap : ""}
         >
-          <div id="mealTime">저녁</div>
-          <div id="meal">
+          <div id={styles.mealTime}>저녁</div>
+          <div id={styles.meal}>
             {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.dinner}
           </div>
         </div>

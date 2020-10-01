@@ -1,73 +1,3 @@
-@font-face {
-  font-family: "aGothic10";
-  src: url(../fonts/a고딕10.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic11";
-  src: url(../fonts/a고딕11.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic12";
-  src: url(../fonts/a고딕12.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic13";
-  src: url(../fonts/a고딕13.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic14";
-  src: url(../fonts/a고딕14.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic15";
-  src: url(../fonts/a고딕15.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic16";
-  src: url(../fonts/a고딕16.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic17";
-  src: url(../fonts/a고딕17.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic18";
-  src: url(../fonts/a고딕18.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "aGothic19";
-  src: url(../fonts/a고딕19.ttf) format("truetype");
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  background-image: url("../images/background.png");
-  background-size: (100%, 100%);
-  font-family: "aGothic12";
-}
-
-#root {
-  width: 100%;
-  height: 100%;
-}
-
-#root > div {
-  width: 100%;
-  height: calc(100% - 5px);
-  border-top: 5px solid #d64b45;
-}
-
 #wrapBox {
   width: 70%;
   height: 270px;
@@ -173,10 +103,10 @@ body {
 
 #mealContentWrap {
   width: calc(100% - 60px);
-  height: 65px;
+  height: 67px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-top: 25px;
+  padding-top: 23px;
   background-color: #fff;
   display: block;
 }
