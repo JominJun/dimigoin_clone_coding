@@ -144,8 +144,8 @@ const Home = () => {
   }
 
   if (
-    getCookieValue("accessToken") != "" &&
-    getCookieValue("refreshToken") != ""
+    getCookieValue("accessToken") !== "" &&
+    getCookieValue("refreshToken") !== ""
   ) {
     return <>로그인 함</>;
   }
