@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import "./Home.css";
+import Main from "./Main";
+import "./Login.css";
 
-const Home = () => {
+const Login = (props) => {
   const [status, setStatus] = useState({
     isLogin: false,
     isLoading: false,
@@ -147,7 +148,7 @@ const Home = () => {
     getCookieValue("accessToken") !== "" &&
     getCookieValue("refreshToken") !== ""
   ) {
-    return <>로그인 함</>;
+    props.history.push("/main");
   }
 
   let today = new Date();
@@ -259,4 +260,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;
