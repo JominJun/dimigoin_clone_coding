@@ -7,7 +7,7 @@ import Main from "./Main";
 const Login = (props) => {
   document.body.parentElement.setAttribute("id", "bgHTML"); // html의 id 설정
   document.body.setAttribute("id", "bgHTML"); // body의 id 설정
-  document.body.childNodes[3].setAttribute("class", "bgHTML_ROOT"); // root 설정
+  document.getElementById("root").setAttribute("class", "bgHTML_ROOT");
 
   const [status, setStatus] = useState({
     isLogin: false,
