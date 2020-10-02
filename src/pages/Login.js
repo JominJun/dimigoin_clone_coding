@@ -4,11 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import styles from "./Login.module.css";
 import Main from "./Main";
 
-const Login = (props) => {
-  document.body.parentElement.setAttribute("id", "bgHTML"); // html의 id 설정
-  document.body.setAttribute("id", "bgHTML"); // body의 id 설정
-  document.getElementById("root").setAttribute("class", "bgHTML_ROOT");
-
+const Login = () => {
   const [status, setStatus] = useState({
     isLogin: false,
     isLoading: false,
@@ -19,6 +15,12 @@ const Login = (props) => {
   const [userInfo, setUserInfo] = useState({
     id: "",
     pw: "",
+    name: "",
+    grade: "",
+    klass: "",
+    number: "",
+    serial: "",
+    email: "",
     accessToken: "",
     refreshToken: "",
   });
@@ -61,6 +63,10 @@ const Login = (props) => {
           errorStatusCode: error.response.status,
         });
       });
+
+    document.body.parentElement.setAttribute("id", "bgHTML"); // html의 id 설정
+    document.body.setAttribute("id", "bgHTML"); // body의 id 설정
+    document.getElementById("root").setAttribute("class", "bgHTML_ROOT");
   }, []);
 
   const handleChange = (event) => {
@@ -87,7 +93,9 @@ const Login = (props) => {
           isLogin: true,
           isLoading: false,
         });
+
         setUserInfo({
+          ...userInfo,
           accessToken: response.data.token,
           refreshToken: response.data.refresh_token,
         });
@@ -137,7 +145,7 @@ const Login = (props) => {
 
   if (status.isLogin) {
     var date = new Date();
-    date.setDate(date.getDate() + 60); // 60분 뒤 만료
+    date.setDate(date.getDate() + 1); // 1일 후 만료
 
     document.cookie = `accessToken=${
       userInfo.accessToken
@@ -152,12 +160,33 @@ const Login = (props) => {
     getCookieValue("accessToken") !== "" &&
     getCookieValue("refreshToken") !== ""
   ) {
-    return (
-      <Main
-        accessToken={getCookieValue("accessToken")}
-        refreshToken={getCookieValue("refreshToken")}
-      />
-    );
+    axios({
+      method: "get",
+      url: "https://api.dimigo.in/user/jwt/",
+      headers: { Authorization: "Bearer " + getCookieValue("accessToken") },
+    })
+      .then((response) => {
+        setUserInfo({
+          ...userInfo,
+          name: response.data.name,
+          grade: response.data.grade,
+          klass: response.data.klass,
+          number: response.data.number,
+          serial: response.data.serial,
+          email: response.data.email,
+          accessToken: getCookieValue("accessToken"),
+          refreshToken: getCookieValue("refreshToken"),
+        });
+      })
+      .catch((error) => {
+        setUserInfo({
+          ...userInfo,
+          accessToken: getCookieValue("accessToken"),
+          refreshToken: getCookieValue("refreshToken"),
+        });
+      });
+
+    return <Main userInfo={userInfo} />;
   }
 
   let today = new Date();

@@ -31,8 +31,6 @@
   float: left;
   padding-left: 30px;
   padding-right: 30px;
-  padding-top: 3px;
-  padding-bottom: 3px;
   font-family: "aGothic17";
   font-size: 19px;
   color: #111;
@@ -44,4 +42,40 @@
 .selectedHeaderMenu {
   padding-bottom: 25px !important;
   border-bottom: 3px solid #d64b45;
+}
+
+#headerUserInfo {
+  float: right;
+  padding-right: 30px;
+}
+
+.headerUserInfoProfile {
+  width: 36px;
+  height: 36px;
+  float: left;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  border: 2px solid #d64b45;
+  cursor: pointer;
+}
+
+.headerUserInfoName {
+  font-family: "aGothic17";
+  font-size: 16px;
+  margin-left: 15px;
+  margin-top: 30.5px;
+  margin-bottom: 30.5px;
+  float: left;
+}
+
+.headerUserInfoLogout {
+  width: 22px;
+  height: 22px;
+  float: left;
+  margin-left: 30px;
+  margin-top: 29px;
+  margin-bottom: 29px;
+  background-image: url("../images/logout.svg");
+  background-size: auto 22px;
 }

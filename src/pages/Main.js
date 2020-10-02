@@ -4,18 +4,18 @@ import styles from "./Main.module.css";
 const Main = (props) => {
   document.body.parentElement.setAttribute("id", "mainHTML"); // html의 id 설정
   document.body.setAttribute("id", "mainHTML"); // body의 id 설정
-  document.body.childNodes[3].setAttribute("class", "mainHTML_ROOT"); // root 설정
+  document.getElementById("root").setAttribute("class", "mainHTML_ROOT");
 
-  let accessToken = props.accessToken;
-  let refreshToken = props.refreshToken;
+  let accessToken = props.userInfo.accessToken;
+  let refreshToken = props.userInfo.refreshToken;
 
-  if (accessToken !== "" && refreshToken !== "")
+  if (accessToken !== "" && refreshToken !== "") {
     return (
       <header id={styles.header}>
         <div id={styles.innerHeader}>
           <svg
             id={styles.logo}
-            class={styles.headerMenu}
+            className={styles.headerMenu}
             data-v-5674a119=""
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
@@ -32,21 +32,31 @@ const Main = (props) => {
             ></path>
           </svg>
           <div id={styles.headerMenuWrap}>
-            <div class={`${styles.headerMenu}`}>인강실</div>
+            <div className={`${styles.headerMenu}`}>인강실</div>
 
-            <div class={`${styles.headerMenu}`}>외출</div>
+            <div className={`${styles.headerMenu}`}>외출</div>
 
-            <div class={`${styles.headerMenu}`}>상담</div>
+            <div className={`${styles.headerMenu}`}>상담</div>
 
-            <div class={`${styles.headerMenu}`}>멘토링</div>
+            <div className={`${styles.headerMenu}`}>멘토링</div>
 
-            <div class={`${styles.headerMenu}`}>방과후</div>
+            <div className={`${styles.headerMenu}`}>방과후</div>
 
-            <div class={`${styles.headerMenu}`}>DETS</div>
+            <div className={`${styles.headerMenu}`}>DETS</div>
+          </div>
+          <div id={styles.headerUserInfo}>
+            <div className={`${styles.headerUserInfoProfile}`}></div>
+            <div className={`${styles.headerUserInfoName}`}>
+              {props.userInfo.name}
+            </div>
+            <div className={`${styles.headerUserInfoLogout}`}></div>
           </div>
         </div>
       </header>
     );
+  }
+
+  return <></>;
 };
 
 export default Main;
