@@ -42,12 +42,7 @@ const Login = () => {
 
     axios
       .get(
-        "https://dev-api.dimigo.in/dimibobs/today/" +
-          year +
-          "-" +
-          month +
-          "-" +
-          day
+        "https://dev-api.dimigo.in/dimibobs/" + year + "-" + month + "-" + day
       )
       .then((response) => {
         setMealInfo({
