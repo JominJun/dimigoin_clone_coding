@@ -12,6 +12,10 @@ const Meal = (props) => {
     errorStatusCode: "",
   });
 
+  const beautifyMeal = (text) => {
+    return text.replaceAll("/", " | ");
+  };
+
   useEffect((mealInfo) => {
     let today = new Date();
     let year = today.getFullYear();
@@ -25,9 +29,9 @@ const Meal = (props) => {
       .then((response) => {
         setMealInfo({
           ...mealInfo,
-          breakfast: response.data.breakfast,
-          lunch: response.data.lunch,
-          dinner: response.data.dinner,
+          breakfast: beautifyMeal(response.data.breakfast),
+          lunch: beautifyMeal(response.data.lunch),
+          dinner: beautifyMeal(response.data.dinner),
         });
       })
       .catch((error) => {
