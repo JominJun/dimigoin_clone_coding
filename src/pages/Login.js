@@ -3,6 +3,7 @@ import axios from "axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import styles from "./Login.module.css";
 import Main from "./Main";
+import Meal from "./Meal";
 
 const Login = () => {
   const [status, setStatus] = useState({
@@ -156,6 +157,29 @@ const Login = () => {
     };Expires=${date.toUTCString()};Secure)`;
   }
 
+  let today = new Date();
+  let hour = today.getHours();
+
+  let isBreakfast = false,
+    isLunch = false,
+    isDinner = false;
+
+  if (6 <= hour && hour <= 8) {
+    isBreakfast = true;
+    isLunch = false;
+    isDinner = false;
+  }
+  if (9 <= hour && hour <= 13) {
+    isBreakfast = false;
+    isLunch = true;
+    isDinner = false;
+  }
+  if (14 <= hour && hour <= 20) {
+    isBreakfast = false;
+    isLunch = false;
+    isDinner = true;
+  }
+
   if (
     getCookieValue("accessToken") !== "" &&
     getCookieValue("refreshToken") !== ""
@@ -186,30 +210,15 @@ const Login = () => {
         });
       });
 
-    return <Main userInfo={userInfo} />;
-  }
-
-  let today = new Date();
-  let hour = today.getHours();
-
-  let isBreakfast = false,
-    isLunch = false,
-    isDinner = false;
-
-  if (6 <= hour && hour <= 8) {
-    isBreakfast = true;
-    isLunch = false;
-    isDinner = false;
-  }
-  if (9 <= hour && hour <= 13) {
-    isBreakfast = false;
-    isLunch = true;
-    isDinner = false;
-  }
-  if (14 <= hour && hour <= 20) {
-    isBreakfast = false;
-    isLunch = false;
-    isDinner = true;
+    return (
+      <Main
+        userInfo={userInfo}
+        mealInfo={mealInfo}
+        isBreakfast={isBreakfast}
+        isLunch={isLunch}
+        isDinner={isDinner}
+      />
+    );
   }
 
   return (
@@ -265,35 +274,12 @@ const Login = () => {
         </div>
       </div>
 
-      <div id={styles.mealBox}>
-        <div
-          id={styles.mealContentWrap}
-          className={isBreakfast ? styles.selectedMealContentWrap : ""}
-        >
-          <div className={styles.mealTime}>아침</div>
-          <div className={styles.meal}>
-            {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.breakfast}
-          </div>
-        </div>
-        <div
-          id={styles.mealContentWrap}
-          className={isLunch ? styles.selectedMealContentWrap : ""}
-        >
-          <div className={styles.mealTime}>점심</div>
-          <div className={styles.meal}>
-            {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.lunch}
-          </div>
-        </div>
-        <div
-          id={styles.mealContentWrap}
-          className={isDinner ? styles.selectedMealContentWrap : ""}
-        >
-          <div className={styles.mealTime}>저녁</div>
-          <div className={styles.meal}>
-            {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.dinner}
-          </div>
-        </div>
-      </div>
+      <Meal
+        mealInfo={mealInfo}
+        isBreakfast={isBreakfast}
+        isLunch={isLunch}
+        isDinner={isDinner}
+      />
     </div>
   );
 };
