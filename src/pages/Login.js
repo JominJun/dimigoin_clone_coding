@@ -124,6 +124,17 @@ const Login = () => {
     return result;
   };
 
+  const removeCookie = (name) => {
+    var date = new Date();
+    date.setDate(date.getDate() - 1);
+
+    var willCookie = "";
+    willCookie += "CookieName=Value;";
+    willCookie += "Expires=" + date.toUTCString();
+
+    document.cookie = willCookie;
+  };
+
   if (status.isLoading) {
     return (
       <>
@@ -198,11 +209,8 @@ const Login = () => {
         });
       })
       .catch((error) => {
-        setUserInfo({
-          ...userInfo,
-          accessToken: getCookieValue("accessToken"),
-          refreshToken: getCookieValue("refreshToken"),
-        });
+        removeCookie("accessToken");
+        removeCookie("refreshToken");
       });
 
     return (

@@ -46,6 +46,19 @@ const Main = (props) => {
 
               <div className={`${styles.headerMenu}`}>DETS</div>
             </div>
+
+            <div id={`${styles.headerMenuBarWrap}`}>
+              <svg
+                id={`${styles.headerMenuBar}`}
+                viewBox="0 -53 384 384"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                <path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                <path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+              </svg>
+            </div>
+
             <div id={styles.headerUserInfo}>
               <div className={`${styles.headerUserInfoProfile}`}></div>
               <div className={`${styles.headerUserInfoName}`}>
@@ -55,7 +68,39 @@ const Main = (props) => {
             </div>
           </div>
         </header>
-        <div>
+        <div id={`${styles.contentWrap}`}>
+          <div id={`${styles.noticeWrap}`}>
+            <div
+              className={`${styles.noticeBox} ${styles.noticeBoxBottomMargin}`}
+            >
+              <div className={`${styles.noticeTitle}`}>
+                Go언어는 진짜 빨라요
+              </div>
+              <div className={`${styles.noticeContent}`}>
+                ㄹㅇ C++이랑 Java를 압도하네요
+              </div>
+            </div>
+
+            <div
+              className={`${styles.noticeBox} ${styles.noticeBoxBottomMargin}`}
+            >
+              <div className={`${styles.noticeTitle}`}>
+                교내최고동아리 Aperture
+              </div>
+              <div className={`${styles.noticeContent}`}>
+                한글로는 애퍼처라고 적는답니다 *^^*
+              </div>
+            </div>
+
+            <div className={`${styles.noticeBox}`}>
+              <div className={`${styles.noticeTitle}`}>
+                이 이모티콘 너무 귀엽지 않나요?
+              </div>
+              <div className={`${styles.noticeContent}`}>
+                ㅇ~ㅇ 전 너무 귀엽다고 생각해요 ㅇ~ㅇ
+              </div>
+            </div>
+          </div>
           <Meal
             caller="Main"
             mealInfo={props.mealInfo}

@@ -13,7 +13,7 @@ const Meal = (props) => {
 
   return (
     <>
-      <div id={styles.mealBox} style={{ marginTop: "50px" }}>
+      <div id={styles.mealBox}>
         <div
           id={styles.mealContentWrap}
           className={props.isBreakfast ? styles.selectedMealContentWrap : ""}
