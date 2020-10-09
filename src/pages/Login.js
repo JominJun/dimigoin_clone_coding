@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import styles from "./Login.module.css";
@@ -25,45 +25,6 @@ const Login = () => {
     accessToken: "",
     refreshToken: "",
   });
-
-  const [mealInfo, setMealInfo] = useState({
-    breakfast: "",
-    lunch: "",
-    dinner: "",
-    isError: false,
-    errorStatusCode: "",
-  });
-
-  useEffect((mealInfo) => {
-    let today = new Date();
-    let year = today.getFullYear();
-    let month = today.getMonth();
-    let day = today.getDate();
-
-    axios
-      .get(
-        "https://dev-api.dimigo.in/dimibobs/" + year + "-" + month + "-" + day
-      )
-      .then((response) => {
-        setMealInfo({
-          ...mealInfo,
-          breakfast: response.data.breakfast,
-          lunch: response.data.lunch,
-          dinner: response.data.dinner,
-        });
-      })
-      .catch((error) => {
-        setMealInfo({
-          ...mealInfo,
-          isError: true,
-          errorStatusCode: error.response.status,
-        });
-      });
-
-    document.body.parentElement.setAttribute("id", "bgHTML"); // html의 id 설정
-    document.body.setAttribute("id", "bgHTML"); // body의 id 설정
-    document.getElementById("root").setAttribute("class", "bgHTML_ROOT");
-  }, []);
 
   const handleChange = (event) => {
     setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
@@ -163,29 +124,6 @@ const Login = () => {
     };Expires=${date.toUTCString()};Secure)`;
   }
 
-  let today = new Date();
-  let hour = today.getHours();
-
-  let isBreakfast = false,
-    isLunch = false,
-    isDinner = false;
-
-  if (6 <= hour && hour <= 8) {
-    isBreakfast = true;
-    isLunch = false;
-    isDinner = false;
-  }
-  if (9 <= hour && hour <= 13) {
-    isBreakfast = false;
-    isLunch = true;
-    isDinner = false;
-  }
-  if (14 <= hour && hour <= 20) {
-    isBreakfast = false;
-    isLunch = false;
-    isDinner = true;
-  }
-
   if (
     getCookieValue("accessToken") !== "" &&
     getCookieValue("refreshToken") !== ""
@@ -213,15 +151,7 @@ const Login = () => {
         removeCookie("refreshToken");
       });
 
-    return (
-      <Main
-        userInfo={userInfo}
-        mealInfo={mealInfo}
-        isBreakfast={isBreakfast}
-        isLunch={isLunch}
-        isDinner={isDinner}
-      />
-    );
+    return <Main userInfo={userInfo} />;
   }
 
   return (
@@ -277,13 +207,7 @@ const Login = () => {
         </div>
       </div>
 
-      <Meal
-        caller="Login"
-        mealInfo={mealInfo}
-        isBreakfast={isBreakfast}
-        isLunch={isLunch}
-        isDinner={isDinner}
-      />
+      <Meal caller="Login" />
     </div>
   );
 };
