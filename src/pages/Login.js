@@ -31,7 +31,6 @@ const Login = () => {
   };
 
   const prelogin = () => {
-    // 로딩 중이 아니며 로그인하지 않았다면
     if (!status.isLoading && !status.isLogin && !status.isError) {
       setStatus({ ...status, isLoading: true });
       login();

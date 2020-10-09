@@ -3,8 +3,8 @@ import styles from "./Main.module.css";
 import Meal from "./Meal";
 
 const Main = (props) => {
-  document.body.parentElement.setAttribute("id", "mainHTML"); // html의 id 설정
-  document.body.setAttribute("id", "mainHTML"); // body의 id 설정
+  document.body.parentElement.setAttribute("id", "mainHTML");
+  document.body.setAttribute("id", "mainHTML");
   document.getElementById("root").setAttribute("class", "mainHTML_ROOT");
 
   let accessToken = props.userInfo.accessToken;
@@ -101,13 +101,7 @@ const Main = (props) => {
               </div>
             </div>
           </div>
-          <Meal
-            caller="Main"
-            mealInfo={props.mealInfo}
-            isBreakfast={props.isBreakfast}
-            isLunch={props.isLunch}
-            isDinner={props.isDinner}
-          />
+          <Meal caller="Main" />
         </div>
       </>
     );

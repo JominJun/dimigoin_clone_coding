@@ -42,8 +42,8 @@ const Meal = (props) => {
         });
       });
 
-    document.body.parentElement.setAttribute("id", "bgHTML"); // html의 id 설정
-    document.body.setAttribute("id", "bgHTML"); // body의 id 설정
+    document.body.parentElement.setAttribute("id", "bgHTML");
+    document.body.setAttribute("id", "bgHTML");
     document.getElementById("root").setAttribute("class", "bgHTML_ROOT");
   }, []);
 
