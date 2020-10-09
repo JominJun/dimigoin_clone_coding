@@ -270,6 +270,7 @@ const Login = () => {
       </div>
 
       <Meal
+        caller="Login"
         mealInfo={mealInfo}
         isBreakfast={isBreakfast}
         isLunch={isLunch}

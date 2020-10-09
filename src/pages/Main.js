@@ -57,6 +57,7 @@ const Main = (props) => {
         </header>
         <div>
           <Meal
+            caller="Main"
             mealInfo={props.mealInfo}
             isBreakfast={props.isBreakfast}
             isLunch={props.isLunch}

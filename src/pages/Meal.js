@@ -1,7 +1,16 @@
 import React from "react";
-import styles from "./Login.module.css";
+import loginStyles from "./Login.module.css";
+import mainStyles from "./Main.module.css";
 
 const Meal = (props) => {
+  let styles = "";
+
+  if (props.caller === "Login") {
+    styles = loginStyles;
+  } else if (props.caller === "Main") {
+    styles = mainStyles;
+  }
+
   return (
     <>
       <div id={styles.mealBox} style={{ marginTop: "50px" }}>
