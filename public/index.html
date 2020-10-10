@@ -62,10 +62,15 @@
         document.body.removeChild(t);
       }
 
-      $(function () {
-        $(".meal").on("click", function () {
+      $(() => {
+        $(".meal").on("click", () => {
           copyToClipboard($(this).text());
           alert("복사되었습니다");
+        });
+
+        $(".logout").on("click", () => {
+          document.cookie =
+            "accessToken=; expires=Thu, 01 Jan 1999 00:00:10 GMT;";
         });
       });
     </script>

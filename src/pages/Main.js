@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./Main.module.css";
 import Meal from "./Meal";
+import dimigoPNG from "../images/dimigo.png";
+import councilPNG from "../images/council.png";
+import beneduPNG from "../images/benedu.png";
+import dimigoLifePNG from "../images/dimigolife.svg";
 
 const Main = (props) => {
   const getCookieValue = (key) => {
@@ -54,10 +58,7 @@ const Main = (props) => {
 
             <div id={styles.headerUserInfo}>
               <div className={`${styles.headerUserInfoProfile}`}></div>
-              <div className={`${styles.headerUserInfoName}`}>
-                {props.userInfo.name}
-              </div>
-              <div className={`${styles.headerUserInfoLogout}`}></div>
+              <div className={`${styles.headerUserInfoLogout} logout`}></div>
             </div>
           </div>
         </header>
@@ -100,7 +101,53 @@ const Main = (props) => {
         </div>
 
         <div id={styles.menuWrap}>
-          <div>인강실</div>
+          <div id={styles.menuLinkWrap}>
+            <a href="https://www.dimigo.hs.kr">
+              <img
+                id={styles.dimigo}
+                className={styles.linkIcons}
+                src={dimigoPNG}
+                alt="dimigo"
+              />
+            </a>
+
+            <a href="https://www.facebook.com/dimigocouncil/">
+              <img
+                id={styles.council}
+                className={styles.linkIcons}
+                src={councilPNG}
+                alt="council"
+              />
+            </a>
+
+            <a href="https://www.benedu.co.kr/">
+              <img
+                id={styles.benedu}
+                className={styles.linkIcons}
+                src={beneduPNG}
+                alt="benedu"
+              />
+            </a>
+
+            <a href="https://dimigo.life/">
+              <img
+                id={styles.dimigoLife}
+                className={styles.linkIcons}
+                src={dimigoLifePNG}
+                alt="dimigoLife"
+              />
+            </a>
+          </div>
+          <div id={styles.menuContentWrap}>
+            <div className={`${styles.menuBox}`}>인강</div>
+            <div className={`${styles.menuBox}`}>빨래</div>
+            <div className={`${styles.menuBox}`}>잔류</div>
+            <div className={`${styles.menuBox}`}>기상</div>
+            <div className={`${styles.menuBox}`}>상담</div>
+            <div className={`${styles.menuBox}`}>활동</div>
+            <div className={`${styles.menuBox}`}>자습</div>
+            <div className={`${styles.menuBox}`}>DETS</div>
+          </div>
         </div>
       </>
     );

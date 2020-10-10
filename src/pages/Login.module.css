@@ -77,6 +77,7 @@
   box-shadow: 0px 7px 10px #ddd;
   font-family: "aGothic12";
   font-size: 14px;
+  margin-bottom: 100px;
 }
 
 @media (max-width: 1500px) {
@@ -146,4 +147,23 @@
 .meal {
   margin-top: 10px;
   color: #bbb;
+  cursor: pointer;
+}
+
+.meal p {
+  display: none;
+  font-size: 12px;
+  margin-top: 19px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 2px;
+}
+
+.meal:hover p {
+  display: inline;
+  position: absolute;
+  background-color: #bbb;
+  color: #fff;
 }

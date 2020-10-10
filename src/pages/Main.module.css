@@ -24,7 +24,6 @@
 
 #headerUserInfo {
   float: right;
-  padding-right: 30px;
 }
 
 .headerUserInfoProfile {
@@ -34,28 +33,22 @@
   margin-top: 22px;
   margin-bottom: 22px;
   border-radius: 50%;
-  border: 2px solid #d64b45;
+  border: 1px solid #ccc;
   cursor: pointer;
-}
-
-.headerUserInfoName {
-  font-family: "aGothic17";
-  font-size: 16px;
-  margin-left: 15px;
-  margin-top: 30.5px;
-  margin-bottom: 30.5px;
-  float: left;
+  background-image: url("../images/testProfile.png");
+  background-size: 100%;
 }
 
 .headerUserInfoLogout {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   float: left;
   margin-left: 30px;
-  margin-top: 29px;
-  margin-bottom: 29px;
+  margin-top: 31px;
+  margin-bottom: 31px;
   background-image: url("../images/logout.svg");
-  background-size: auto 22px;
+  background-size: auto 18px;
+  cursor: pointer;
 }
 
 @media (max-width: 1320px) {
@@ -65,13 +58,9 @@
     padding-right: 40px;
   }
 
-  .headerUserInfoName {
-    display: none;
-  }
-
-  #contentWrap {
+  #contentWrap,
+  #menuWrap {
     width: calc(100% - 80px) !important;
-    height: 605px !important;
     margin-left: 40px !important;
     margin-right: 40px !important;
   }
@@ -83,6 +72,11 @@
   }
 
   @media (max-width: 950px) {
+    #contentWrap {
+      height: 605px !important;
+      margin-top: 20px !important;
+    }
+
     #noticeWrap {
       width: 100% !important;
     }
@@ -98,13 +92,25 @@
     #mealContentWrap {
       height: 85px !important;
     }
+
+    #menuWrap {
+      margin-top: 20px !important;
+    }
+
+    #menuLinkWrap {
+      display: none;
+    }
+
+    #menuContentWrap {
+      width: 100% !important;
+    }
   }
 }
 
 #contentWrap {
   width: calc(100% - 200px);
   height: 270px;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-left: 100px;
   margin-right: 100px;
 }
@@ -131,16 +137,16 @@
 }
 
 .noticeTitle {
-  font-family: "aGothic15";
-  font-size: 16px;
+  font-family: "aGothic17";
+  font-size: 17px;
   color: #d64b45;
   cursor: pointer;
 }
 
 .noticeContent {
   margin-top: 12px;
-  color: #555;
-  font-size: 14px;
+  color: #777;
+  font-size: 13px;
 }
 
 #mealBox {
@@ -190,11 +196,13 @@
 
 .meal p {
   display: none;
+  font-size: 12px;
   margin-top: 19px;
   padding-left: 7px;
   padding-right: 7px;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 2px;
 }
 
 .meal:hover p {
@@ -206,8 +214,67 @@
 
 #menuWrap {
   width: calc(100% - 200px);
-  height: 270px;
-  margin-top: 40px;
+  height: 47px;
+  margin-top: 50px;
   margin-left: 100px;
   margin-right: 100px;
+}
+
+#menuContentWrap {
+  width: calc(100% - 380px);
+  height: 100%;
+  float: right;
+  box-shadow: 0px 7px 10px #ddd;
+}
+
+.menuBox {
+  width: calc(100% / 8);
+  float: left;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: "aGothic17";
+  font-size: 15px;
+  color: #777;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.menuBox:hover {
+  color: #fff;
+  background-color: #ec504a;
+}
+
+#menuLinkWrap {
+  width: 350px;
+  height: 47px;
+  float: left;
+}
+
+.linkIcons {
+  height: 32px;
+  cursor: pointer;
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+#dimigo {
+  float: left;
+}
+
+#council {
+  float: left;
+  height: 47px;
+  margin-left: 30px;
+}
+
+#benedu {
+  float: left;
+  margin-left: 30px;
+}
+
+#dimigoLife {
+  float: right;
 }
