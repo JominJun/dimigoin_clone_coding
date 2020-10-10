@@ -20,30 +20,6 @@
   cursor: pointer;
 }
 
-#headerMenuWrap {
-  width: fit-content;
-  height: 100%;
-  float: left;
-  padding-left: 75px; /* 75가 딱 맞음 */
-}
-
-.headerMenu {
-  float: left;
-  padding-left: 30px;
-  padding-right: 30px;
-  font-family: "aGothic17";
-  font-size: 19px;
-  color: #111;
-  padding-top: 29px;
-  padding-bottom: 29px;
-  cursor: pointer;
-}
-
-.selectedHeaderMenu {
-  padding-bottom: 25px !important;
-  border-bottom: 3px solid #d64b45;
-}
-
 #headerUserInfo {
   float: right;
   padding-right: 30px;
@@ -80,11 +56,6 @@
   background-size: auto 22px;
 }
 
-#headerMenuBarWrap {
-  display: none;
-  cursor: pointer;
-}
-
 @media (max-width: 1320px) {
   #innerHeader {
     width: calc(100% - 80px);
@@ -92,57 +63,26 @@
     padding-right: 40px;
   }
 
-  #headerMenuWrap {
-    padding-left: 35px;
-  }
-
-  .headerMenu {
-    padding-left: 20px;
-    padding-right: 20px;
-    font-family: "aGothic17";
-    font-size: 19px;
-  }
-
   .headerUserInfoName {
     display: none;
   }
 
+  #contentWrap {
+    width: calc(100% - 80px) !important;
+    height: 605px !important;
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+  }
+
   #mealBox {
-    width: calc(100% - 140px) !important;
+    width: calc(100% - 380px) !important;
     float: none;
     display: block;
-    margin-left: 70px !important;
-    margin-right: 70px !important;
-    margin-top: 40px;
   }
 
   @media (max-width: 950px) {
-    #headerMenuWrap {
-      display: none;
-    }
-
-    .headerUserInfoLogout {
-      display: none;
-    }
-
-    #headerUserInfo {
-      padding-right: 25px;
-    }
-
-    #headerMenuBarWrap {
-      padding: 8px 10px 4px 10px;
-      background-color: #d64b45;
-      margin-top: 24px;
-      margin-bottom: 24px;
-      border-radius: 3px;
-      float: right;
-      display: block;
-    }
-
-    #headerMenuBar {
-      width: 20px;
-      height: 20px;
-      fill: #fff;
+    #noticeWrap {
+      width: 100% !important;
     }
 
     #mealBox {
@@ -160,10 +100,11 @@
 }
 
 #contentWrap {
-  width: calc(100% - 260px);
+  width: calc(100% - 200px);
+  height: 270px;
   margin-top: 50px;
-  margin-left: 130px;
-  margin-right: 130px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 #noticeWrap {

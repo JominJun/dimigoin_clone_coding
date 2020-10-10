@@ -7,6 +7,17 @@ const Main = (props) => {
   document.body.setAttribute("id", "mainHTML");
   document.getElementById("root").setAttribute("class", "mainHTML_ROOT");
 
+  const removeCookie = () => {
+    var date = new Date();
+    date.setDate(date.getDate() - 1);
+
+    var willCookie = "";
+    willCookie += "CookieName=Value;";
+    willCookie += "Expires=" + date.toUTCString();
+
+    document.cookie = willCookie;
+  };
+
   let accessToken = props.userInfo.accessToken;
   let refreshToken = props.userInfo.refreshToken;
 
@@ -33,31 +44,6 @@ const Main = (props) => {
                 fill="#e83c3d"
               ></path>
             </svg>
-            <div id={styles.headerMenuWrap}>
-              <div className={`${styles.headerMenu}`}>인강실</div>
-
-              <div className={`${styles.headerMenu}`}>외출</div>
-
-              <div className={`${styles.headerMenu}`}>상담</div>
-
-              <div className={`${styles.headerMenu}`}>멘토링</div>
-
-              <div className={`${styles.headerMenu}`}>방과후</div>
-
-              <div className={`${styles.headerMenu}`}>DETS</div>
-            </div>
-
-            <div id={`${styles.headerMenuBarWrap}`}>
-              <svg
-                id={`${styles.headerMenuBar}`}
-                viewBox="0 -53 384 384"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
-                <path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
-                <path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
-              </svg>
-            </div>
 
             <div id={styles.headerUserInfo}>
               <div className={`${styles.headerUserInfoProfile}`}></div>
@@ -107,6 +93,7 @@ const Main = (props) => {
     );
   }
 
+  removeCookie();
   return <></>;
 };
 
