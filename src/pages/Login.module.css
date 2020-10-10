@@ -79,13 +79,19 @@
   font-size: 14px;
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 1500px) {
   #wrapBox {
     width: 80%;
     height: 590px;
     padding-left: 10%;
     padding-right: 10%;
     padding-bottom: 0px;
+  }
+
+  #logoBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   #loginBox {
@@ -102,6 +108,12 @@
   }
 }
 
+@media (max-width: 650px) {
+  #mealContentWrap {
+    height: 87px !important;
+  }
+}
+
 #mealContentWrap {
   width: calc(100% - 60px);
   height: 67px;
@@ -113,6 +125,7 @@
 }
 
 .selectedMealContentWrap {
+  padding-left: 27px !important;
   border-left: 3px solid #d64b45;
 }
 

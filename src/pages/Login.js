@@ -112,7 +112,7 @@ const Login = () => {
 
   if (status.isLogin) {
     var date = new Date();
-    date.setDate(date.getDate() + 1); // 1일 후 만료
+    date.setDate(date.getDate() + 1);
 
     document.cookie = `accessToken=${
       userInfo.accessToken
