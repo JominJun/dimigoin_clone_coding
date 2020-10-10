@@ -19,7 +19,7 @@ const Meal = (props) => {
   useEffect((mealInfo) => {
     let today = new Date();
     let year = today.getFullYear();
-    let month = today.getMonth();
+    let month = String(parseInt(today.getMonth() + 1)); // 도대체 왜 1을 더해줘야 하는 거지 ??
     let day = today.getDate();
 
     axios
@@ -41,10 +41,6 @@ const Meal = (props) => {
           errorStatusCode: error.response.status,
         });
       });
-
-    document.body.parentElement.setAttribute("id", "bgHTML");
-    document.body.setAttribute("id", "bgHTML");
-    document.getElementById("root").setAttribute("class", "bgHTML_ROOT");
   }, []);
 
   let today = new Date();
@@ -86,8 +82,11 @@ const Meal = (props) => {
           className={isBreakfast ? styles.selectedMealContentWrap : ""}
         >
           <div className={styles.mealTime}>아침</div>
-          <div className={styles.meal}>
-            {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.breakfast}
+          <div className={`${styles.meal}`}>
+            <p>위의 급식 내용을 클릭하여 복사하세요</p>
+            <span className="meal">
+              {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.breakfast}
+            </span>
           </div>
         </div>
         <div
@@ -95,8 +94,11 @@ const Meal = (props) => {
           className={isLunch ? styles.selectedMealContentWrap : ""}
         >
           <div className={styles.mealTime}>점심</div>
-          <div className={styles.meal}>
-            {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.lunch}
+          <div className={`${styles.meal}`}>
+            <p>위의 급식 내용을 클릭하여 복사하세요</p>
+            <span className="meal">
+              {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.lunch}
+            </span>
           </div>
         </div>
         <div
@@ -104,8 +106,11 @@ const Meal = (props) => {
           className={isDinner ? styles.selectedMealContentWrap : ""}
         >
           <div className={styles.mealTime}>저녁</div>
-          <div className={styles.meal}>
-            {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.dinner}
+          <div className={`${styles.meal}`}>
+            <p>위의 급식 내용을 클릭하여 복사하세요</p>
+            <span className="meal">
+              {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.dinner}
+            </span>
           </div>
         </div>
       </div>

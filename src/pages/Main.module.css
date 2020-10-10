@@ -3,6 +3,8 @@
   height: 80px;
   background-color: #fff;
   box-shadow: 0px 3px 6px #eee;
+  position: sticky;
+  top: 0px;
 }
 
 #innerHeader {
@@ -102,7 +104,7 @@
 #contentWrap {
   width: calc(100% - 200px);
   height: 270px;
-  margin-top: 50px;
+  margin-top: 40px;
   margin-left: 100px;
   margin-right: 100px;
 }
@@ -162,6 +164,7 @@
 }
 
 .selectedMealContentWrap {
+  width: calc(100% - 63px) !important;
   border-left: 3px solid #d64b45;
 }
 
@@ -182,4 +185,29 @@
 .meal {
   margin-top: 10px;
   color: #bbb;
+  cursor: pointer;
+}
+
+.meal p {
+  display: none;
+  margin-top: 19px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.meal:hover p {
+  display: inline;
+  position: absolute;
+  background-color: #bbb;
+  color: #fff;
+}
+
+#menuWrap {
+  width: calc(100% - 200px);
+  height: 270px;
+  margin-top: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
 }

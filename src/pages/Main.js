@@ -3,23 +3,30 @@ import styles from "./Main.module.css";
 import Meal from "./Meal";
 
 const Main = (props) => {
+  const getCookieValue = (key) => {
+    let cookieKey = key + "=";
+    let result = "";
+    const cookieArr = document.cookie.split(";");
+
+    for (let i = 0; i < cookieArr.length; i++) {
+      if (cookieArr[i][0] === " ") {
+        cookieArr[i] = cookieArr[i].substring(1);
+      }
+
+      if (cookieArr[i].indexOf(cookieKey) === 0) {
+        result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
+        return result;
+      }
+    }
+    return result;
+  };
+
   document.body.parentElement.setAttribute("id", "mainHTML");
   document.body.setAttribute("id", "mainHTML");
   document.getElementById("root").setAttribute("class", "mainHTML_ROOT");
 
-  const removeCookie = () => {
-    var date = new Date();
-    date.setDate(date.getDate() - 1);
-
-    var willCookie = "";
-    willCookie += "CookieName=Value;";
-    willCookie += "Expires=" + date.toUTCString();
-
-    document.cookie = willCookie;
-  };
-
-  let accessToken = props.userInfo.accessToken;
-  let refreshToken = props.userInfo.refreshToken;
+  let accessToken = getCookieValue("accessToken");
+  let refreshToken = getCookieValue("refreshToken");
 
   if (accessToken !== "" && refreshToken !== "") {
     return (
@@ -54,6 +61,7 @@ const Main = (props) => {
             </div>
           </div>
         </header>
+
         <div id={`${styles.contentWrap}`}>
           <div id={`${styles.noticeWrap}`}>
             <div
@@ -87,13 +95,17 @@ const Main = (props) => {
               </div>
             </div>
           </div>
+
           <Meal caller="Main" />
+        </div>
+
+        <div id={styles.menuWrap}>
+          <div>인강실</div>
         </div>
       </>
     );
   }
 
-  removeCookie();
   return <></>;
 };
 

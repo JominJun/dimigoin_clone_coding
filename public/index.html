@@ -47,6 +47,28 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <meta http-equiv="refresh" content="3600;" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function copyToClipboard(val) {
+        var t = document.createElement("textarea");
+        document.body.appendChild(t);
+        t.value = val;
+        t.select();
+        document.execCommand("copy");
+        document.body.removeChild(t);
+      }
+
+      $(function () {
+        $(".meal").on("click", function () {
+          copyToClipboard($(this).text());
+          alert("복사되었습니다");
+        });
+      });
+    </script>
     <title>내 삶을 액션 빔, 디미고인</title>
   </head>
   <body>

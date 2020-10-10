@@ -85,14 +85,7 @@ const Login = () => {
   };
 
   const removeCookie = (name) => {
-    var date = new Date();
-    date.setDate(date.getDate() - 1);
-
-    var willCookie = "";
-    willCookie += "CookieName=Value;";
-    willCookie += "Expires=" + date.toUTCString();
-
-    document.cookie = willCookie;
+    document.cookie = name + "=; expires=Thu, 01 Jan 1999 00:00:10 GMT;";
   };
 
   if (status.isLoading) {
@@ -145,13 +138,18 @@ const Login = () => {
           refreshToken: getCookieValue("refreshToken"),
         });
       })
-      .catch((error) => {
+      .catch(() => {
         removeCookie("accessToken");
         removeCookie("refreshToken");
+        window.location.reload();
       });
 
     return <Main userInfo={userInfo} />;
   }
+
+  document.body.parentElement.setAttribute("id", "bgHTML");
+  document.body.setAttribute("id", "bgHTML");
+  document.getElementById("root").setAttribute("class", "bgHTML_ROOT");
 
   return (
     <>
@@ -219,7 +217,7 @@ const Login = () => {
           color: "#bbb",
         }}
       >
-        디미고인 v3의 디자인을 매우 참고하였습니다
+        디미고인 v2, v3 및 디미라이프의 디자인을 참고하였습니다
       </div>
     </>
   );
