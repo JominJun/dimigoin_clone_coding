@@ -83,7 +83,7 @@ const Meal = (props) => {
         >
           <div className={styles.mealTime}>아침</div>
           <div className={`${styles.meal}`}>
-            <p>위의 급식 내용을 클릭하여 복사하세요</p>
+            <p>클릭하여 복사하세요</p>
             <span className="meal">
               {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.breakfast}
             </span>
@@ -95,7 +95,7 @@ const Meal = (props) => {
         >
           <div className={styles.mealTime}>점심</div>
           <div className={`${styles.meal}`}>
-            <p>위의 급식 내용을 클릭하여 복사하세요</p>
+            <p>클릭하여 복사하세요</p>
             <span className="meal">
               {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.lunch}
             </span>
@@ -107,7 +107,7 @@ const Meal = (props) => {
         >
           <div className={styles.mealTime}>저녁</div>
           <div className={`${styles.meal}`}>
-            <p>위의 급식 내용을 클릭하여 복사하세요</p>
+            <p>클릭하여 복사하세요</p>
             <span className="meal">
               {mealInfo.isError ? "급식 정보가 없습니다" : mealInfo.dinner}
             </span>
