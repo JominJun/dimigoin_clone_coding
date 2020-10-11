@@ -2,6 +2,19 @@
   #menuContentWrap {
     width: 100% !important;
   }
+
+  .menuBox {
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+  }
+
+  .menuIcons {
+    display: unset !important;
+  }
+
+  .menuNames {
+    display: none;
+  }
 }
 
 #menuContentWrap {
@@ -28,4 +41,45 @@
 .menuBox:hover {
   color: #fff;
   background-color: #ec504a;
+}
+
+.menuIcons {
+  width: 21px;
+  height: 21px;
+  display: none;
+}
+
+#ingangIcon {
+  background-image: url("../images/ingang.svg");
+  background-size: auto 21px;
+}
+
+#laundryIcon {
+  background-image: url("../images/laundry.svg");
+  background-size: auto 21px;
+}
+
+#stayIcon {
+  background-image: url("../images/stay.svg");
+  background-size: auto 21px;
+}
+
+#counselIcon {
+  background-image: url("../images/counsel.svg");
+  background-size: auto 21px;
+}
+
+#afterschoolIcon {
+  background-image: url("../images/afterschool.svg");
+  background-size: auto 21px;
+}
+
+#clubIcon {
+  background-image: url("../images/club.png");
+  background-size: auto 21px;
+}
+
+#studyIcon {
+  background-image: url("../images/study.svg");
+  background-size: auto 21px;
 }

@@ -130,6 +130,7 @@ const Main = (props) => {
     );
   }
 
+  alert("로그인 정보 확인 도중에 오류가 발생하였습니다");
   window.location.reload();
   return <></>;
 };
