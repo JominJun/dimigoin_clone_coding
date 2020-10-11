@@ -148,6 +148,7 @@
   margin-top: 10px;
   color: #bbb;
   cursor: pointer;
+  user-select: none;
 }
 
 .meal p {

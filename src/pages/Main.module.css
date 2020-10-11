@@ -41,6 +41,11 @@
     #mealContentWrap {
       height: 85px !important;
     }
+
+    #menubarWrap {
+      width: 100% !important;
+      float: right;
+    }
   }
 }
 
@@ -129,6 +134,7 @@
   margin-top: 10px;
   color: #bbb;
   cursor: pointer;
+  user-select: none;
 }
 
 .meal p {

@@ -7,7 +7,8 @@
 
   @media (max-width: 950px) {
     #menuWrap {
-      margin-top: 20px !important;
+      width: 100% !important;
+      margin: 0px !important;
     }
   }
 }
