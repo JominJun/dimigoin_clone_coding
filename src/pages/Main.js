@@ -110,6 +110,7 @@ const Main = (props) => {
                 className={styles.linkIcons}
                 src={dimigoPNG}
                 alt="dimigo"
+                title="dimigo"
               />
             </a>
 
@@ -119,6 +120,7 @@ const Main = (props) => {
                 className={styles.linkIcons}
                 src={councilPNG}
                 alt="council"
+                title="council"
               />
             </a>
 
@@ -128,6 +130,7 @@ const Main = (props) => {
                 className={styles.linkIcons}
                 src={beneduPNG}
                 alt="benedu"
+                title="benedu"
               />
             </a>
 
@@ -137,24 +140,42 @@ const Main = (props) => {
                 className={styles.linkIcons}
                 src={dimigoLifePNG}
                 alt="dimigoLife"
+                title="dimigoLife"
               />
             </a>
           </div>
           <div id={styles.menuContentWrap}>
-            <div className={`${styles.menuBox}`}>인강</div>
-            <div className={`${styles.menuBox}`}>빨래</div>
-            <div className={`${styles.menuBox}`}>잔류</div>
-            <div className={`${styles.menuBox}`}>기상</div>
-            <div className={`${styles.menuBox}`}>상담</div>
-            <div className={`${styles.menuBox}`}>활동</div>
-            <div className={`${styles.menuBox}`}>자습</div>
-            <div className={`${styles.menuBox}`}>DETS</div>
+            <a href="/ingang">
+              <div className={`${styles.menuBox}`}>인강</div>
+            </a>
+            <a href="/laundry">
+              <div className={`${styles.menuBox}`}>빨래</div>
+            </a>
+            <a href="/stay">
+              <div className={`${styles.menuBox}`}>잔류</div>
+            </a>
+            <a href="/counsel">
+              <div className={`${styles.menuBox}`}>상담</div>
+            </a>
+            <a href="/afterschool">
+              <div className={`${styles.menuBox}`}>방과후</div>
+            </a>
+            <a href="/club">
+              <div className={`${styles.menuBox}`}>동아리</div>
+            </a>
+            <a href="/study">
+              <div className={`${styles.menuBox}`}>자습</div>
+            </a>
+            <a href="/dets">
+              <div className={`${styles.menuBox}`}>DETS</div>
+            </a>
           </div>
         </div>
       </>
     );
   }
 
+  window.location.reload();
   return <></>;
 };
 

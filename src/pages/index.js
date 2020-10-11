@@ -1,1 +1,9 @@
 export { default as Login } from "./Login";
+export { default as Ingang } from "./Ingang";
+export { default as Laundry } from "./Laundry";
+export { default as Stay } from "./Stay";
+export { default as Counsel } from "./Counsel";
+export { default as Afterschool } from "./Afterschool";
+export { default as Club } from "./Club";
+export { default as Study } from "./Study";
+export { default as Dets } from "./Dets";
