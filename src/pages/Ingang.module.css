@@ -1,0 +1,21 @@
+@media (max-width: 1320px) {
+  #menuWrap {
+    width: calc(100% - 80px) !important;
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+  }
+
+  @media (max-width: 950px) {
+    #menuWrap {
+      margin-top: 20px !important;
+    }
+  }
+}
+
+#menuWrap {
+  width: calc(100% - 200px);
+  height: 47px;
+  margin-top: 25px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
